@@ -4,8 +4,16 @@ import sys
 import time
 import serial
 
+def isNumber(s):
+  try:
+    int(s)
+    return True
+  except ValueError:
+    return False
+
+
 def Mute(cmd_data='status') :
-  send_cmd = GenCommand('power', 'status')
+  send_cmd = GenCommand('mute', cmd_data)
   return SendCommand(send_cmd)
 
 def Volume(cmd_data='status') :
